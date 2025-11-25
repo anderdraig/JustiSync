@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustiSync</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/home.js'])
 </head>
 <body>
     <header>
@@ -31,39 +31,14 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white dark:bg-gray-950/50">Inicio</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Servicios</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">sobre nosotros</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contacto</a>
+                        <a href="{{route('home')}}" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white dark:bg-gray-950/50">Inicio</a>
+                        <a href="{{route('servicios')}}" target="_blank" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Servicios</a>
+                        <a href="{{route('about')}}" target="_blank" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">sobre nosotros</a>
+                        <a href="{{route('contacto')}}" target="_blank" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contacto</a>
                     </div>
                 </div>
         </div>
-    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:hover:text-white">
-          <span class="absolute -inset-1.5"></span>
-          <span class="sr-only">View notifications</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
 
-        <!-- Profile dropdown -->
-        <el-dropdown class="relative ml-3">
-          <button class="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">Open user menu</span>
-            <img src="{{asset('imagenes/user.png')}}" alt="" class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
-          </button>
-
-          <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Your profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Sign out</a>
-          </el-menu>
-        </el-dropdown>
-      </div>
-    </div>
-  </div>
 
   <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
     <div class="space-y-1 px-2 pt-2 pb-3">
@@ -84,7 +59,7 @@
       <div class="min-w-full relative">
         <img src="{{asset('imagenes/asesoria.png')}}" alt="servicio 1" class="w-full h-[480px] object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-8 pb-10">
-          <p class="text-sm text-pink-400 font-semibold">Servicios</p>
+          <p class="text-sm text-indigo-400 font-semibold">Servicios</p>
           <h2 class="text-3xl font-bold mb-2">Asesoría Legal Integral</h2>
           <p class="max-w-2xl text-gray-300">Brindamos acompañamiento y orientación jurídica en diversas áreas del derecho, garantizando soluciones personalizadas y seguras para particulares y empresas.</p>
         </div>
@@ -94,7 +69,7 @@
       <div class="min-w-full relative">
         <img src="{{asset('imagenes/derecho_civil.jpg')}}" alt="servicio 2" class="w-full h-[480px] object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-8 pb-10">
-          <p class="text-sm text-pink-400 font-semibold">Servicios</p>
+          <p class="text-sm text-indigo-400 font-semibold">Servicios</p>
           <h2 class="text-3xl font-bold mb-2">Derecho Civil y Familiar</h2>
           <p class="max-w-2xl text-gray-300">Representación en procesos de divorcio, herencias, sucesiones, contratos civiles y reclamaciones patrimoniales, siempre priorizando la conciliación y el bienestar de las partes.</p>
         </div>
@@ -104,7 +79,7 @@
       <div class="min-w-full relative">
         <img src="{{asset('imagenes/derecho_corporativo.jpg')}}" alt="servicio 3" class="w-full h-[480px] object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-8 pb-10">
-          <p class="text-sm text-pink-400 font-semibold">Servicio</p>
+          <p class="text-sm text-indigo-400 font-semibold">Servicio</p>
           <h2 class="text-3xl font-bold mb-2">Derecho Corporativo y Empresarial</h2>
           <p class="max-w-2xl text-gray-300">Constitución de empresas, redacción de contratos comerciales, fusiones, adquisiciones y cumplimiento normativo para tu negocio.</p>
         </div>
@@ -129,50 +104,46 @@
 
     
 
-
-    </section>
-    <!--nuestro team-->
+    <!--nuestro equipo-->
     <section class="bg-gray-900 text-gray-100 py-10">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Título -->
-    <h2 class="text-lg font-semibold mb-6 border-b border-gray-700 pb-2">Nuestro Equipo</h2>
+      <div class="max-w-7xl mx-auto px-6">
 
-    <!-- Carrusel horizontal -->
-    <div class="flex space-x-6 overflow-x-auto scrollbar-hide pb-4">
-      <!-- Tarjeta 1 -->
-      <div class="flex-shrink-0 w-64 bg-gray-800 rounded-xl shadow-lg p-4 hover:bg-gray-700 transition-all duration-300">
-        <img src="{{ asset('imagenes/perfil.png') }}" alt="Abogado 1" class="w-16 h-16 rounded-full object-cover mb-3">
-        <p class="text-sm text-indigo-400 font-medium">Derecho Penal</p>
-        <h3 class="text-base font-semibold mb-2">Carlos Ramírez</h3>
-        <p class="text-gray-400 text-sm">Especialista en litigios complejos y defensa penal estratégica.</p>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-semibold border-b border-gray-700 pb-2">
+            Nuestro Equipo
+        </h2>
+
+        <a href="{{ route('abogados') }}"
+          class="text-sm text-indigo-400 hover:text-indigo-300 font-medium" target="_blank">
+            Ver más →
+        </a>
       </div>
 
-      <!-- Tarjeta 2 -->
-      <div class="flex-shrink-0 w-64 bg-gray-800 rounded-xl shadow-lg p-4 hover:bg-gray-700 transition-all duration-300">
-        <img src="{{ asset('imagenes/perfil.png') }}" alt="Abogada 2" class="w-16 h-16 rounded-full object-cover mb-3">
-        <p class="text-sm text-indigo-400 font-medium">Derecho Laboral</p>
-        <h3 class="text-base font-semibold mb-2">María López</h3>
-        <p class="text-gray-400 text-sm">Experta en derecho laboral y resolución de conflictos sindicales.</p>
-      </div>
+      <div class="flex space-x-6 overflow-x-auto scrollbar-hide pb-4">
 
-      <!-- Tarjeta 3 -->
-      <div class="flex-shrink-0 w-64 bg-gray-800 rounded-xl shadow-lg p-4 hover:bg-gray-700 transition-all duration-300">
-        <img src="{{ asset('imagenes/perfil.png') }}" alt="Abogado 3" class="w-16 h-16 rounded-full object-cover mb-3">
-        <p class="text-sm text-indigo-400 font-medium">Derecho Civil</p>
-        <h3 class="text-base font-semibold mb-2">Lucía Fernández</h3>
-        <p class="text-gray-400 text-sm">Amplia experiencia en derecho civil, contratos y responsabilidad civil.</p>
-      </div>
+        @foreach ($abogados as $abogado)
+        <div class="flex-shrink-0 w-64 bg-gray-800 rounded-xl shadow-lg p-4
+                    hover:bg-gray-700 transition-all duration-300">
 
-      <!-- Tarjeta 4 -->
-      <div class="flex-shrink-0 w-64 bg-gray-800 rounded-xl shadow-lg p-4 hover:bg-gray-700 transition-all duration-300">
-        <img src="{{ asset('imagenes/perfil.png') }}" alt="Abogado 4" class="w-16 h-16 rounded-full object-cover mb-3">
-        <p class="text-sm text-indigo-400 font-medium">Derecho Corporativo</p>
-        <h3 class="text-base font-semibold mb-2">Andrés Gómez</h3>
-        <p class="text-gray-400 text-sm">Asesor legal corporativo y estructuración de empresas multinacionales.</p>
+            <img src="{{ $abogado->imagen_perfil }}"
+                alt="Foto de {{ $abogado->nombre }}"
+                class="w-16 h-16 rounded-full object-cover mb-3">
+
+            <p class="text-sm text-indigo-400 font-medium">
+                {{ $abogado->especialidad }}
+            </p>
+
+            <h3 class="text-base font-semibold mb-2">
+                {{ $abogado->nombre }}
+            </h3>
+
+        </div>
+        @endforeach
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 
 
 <!--ultimas noticias -->
