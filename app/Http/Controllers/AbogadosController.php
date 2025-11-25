@@ -9,7 +9,7 @@ class AbogadosController extends Controller
 {
     public function index()
     {
-        // Solo mostrar abogados activos
+        // abogados activos
         $abogados = Abogado::where('estado_actual', true)->get();
 
         return view('pages.abogados', compact('abogados'));
